@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>स्वास्थ्य सेवक - Health Companion</title>
+    <meta name="description" content="Your personal health companion with Ayurvedic remedies, emergency support, and wellness guidance for elderly users">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="language-btn" onclick="toggleLanguageMenu()">
+            <i class="fas fa-globe"></i>
+            <span id="current-language">🇺🇸 English</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="language-menu" id="language-menu">
+            <button onclick="changeLanguage('en', '🇺🇸 English')">🇺🇸 English</button>
+            <button onclick="changeLanguage('hi', '🇮🇳 हिंदी')">🇮🇳 हिंदी</button>
+            <button onclick="changeLanguage('bn', '🇧🇩 বাংলা')">🇧🇩 বাংলা</button>
+            <button onclick="changeLanguage('ta', '🇮🇳 தமிழ்')">🇮🇳 தமிழ்</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-header">
+                <div class="logo">
+                    <i class="fas fa-heart"></i>
+                    <h1 data-en="Health Companion" data-hi="स्वास्थ्य सेवक" data-bn="স্বাস্থ্য সেবক" data-ta="ஆரோக்கிய துணை">स्वास्थ्य सेवक</h1>
+                </div>
+            </div>
+            
+            <h2 class="hero-title" data-en="Your Personal Health Companion" data-hi="आपका व्यक्तिगत स्वास्थ्य साथी" data-bn="আপনার ব্যক্তিগত স্বাস্থ্য সঙ্গী" data-ta="உங்கள் தனிப்பட்ட ஆரோக்கிய துணை">
+                Your Personal Health Companion
+            </h2>
+            <p class="hero-subtitle" data-en="Traditional Ayurvedic wisdom meets modern convenience. Get personalized health guidance, emergency support, and wellness recommendations designed for your golden years." data-hi="पारंपरिक आयुर्वेदिक ज्ञान आधुनिक सुविधा से मिलता है। अपने सुनहरे वर्षों के लिए डिज़ाइन की गई व्यक्तिगत स्वास्थ्य मार्गदर्शन, आपातकालीन सहायता और कल्याण सिफारिशें प्राप्त करें।" data-bn="ঐতিহ্যবাহী আয়ুর্বেদিক জ্ঞান আধুনিক সুবিধার সাথে মিলিত। আপনার সোনালী বছরগুলির জন্য ডিজাইন করা ব্যক্তিগত স্বাস্থ্য নির্দেশনা, জরুরি সহায়তা এবং সুস্থতার সুপারিশ পান।" data-ta="பாரம்பரிய ஆயுர்வேத ஞானம் நவீன வசதியுடன் சந்திக்கிறது। உங்கள் பொன்னான ஆண்டுகளுக்காக வடிவமைக்கப்பட்ட தனிப்பயனாக்கப்பட்ட சுகாதார வழிகாட்டுதல், அவசர ஆதரவு மற்றும் நல்வாழ்வு பரிந்துரைகளைப் பெறுங்கள்।">
+                Traditional Ayurvedic wisdom meets modern convenience. Get personalized health guidance, emergency support, and wellness recommendations designed for your golden years.
+            </p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-hero" onclick="showFeature('symptoms')">
+                    <i class="fas fa-stethoscope"></i>
+                    <span data-en="Check Your Health" data-hi="अपनी सेहत जांचें" data-bn="আপনার স্বাস্থ্য পরীক্ষা করুন" data-ta="உங்கள் ஆரோக்கியத்தை சோதிக்கவும்">Check Your Health</span>
+                </button>
+                <button class="btn btn-emergency" onclick="showFeature('emergency')">
+                    <i class="fas fa-phone"></i>
+                    <span data-en="Emergency Help" data-hi="आपातकालीन सहायता" data-bn="জরুরি সাহায্য" data-ta="அவசர உதவி">Emergency Help</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav" id="main-nav">
+        <div class="nav-container">
+            <button class="nav-btn" onclick="showDashboard()">
+                <i class="fas fa-home"></i>
+                <span data-en="Dashboard" data-hi="डैशबोर्ड" data-bn="ড্যাশবোর্ড" data-ta="டாஷ்போர்டு">Dashboard</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard -->
+        <section id="dashboard" class="section active">
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon wellness">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>50,000+</h3>
+                    <p data-en="Happy Users" data-hi="खुश उपयोगकर्ता" data-bn="খুশি ব্যবহারকারী" data-ta="மகிழ்ச்சியான பயனர்கள்">Happy Users</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon ayurveda">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>500+</h3>
+                    <p data-en="Ayurvedic Remedies" data-hi="आयुर्वेदिक उपचार" data-bn="আয়ুর্বেদিক প্রতিকার" data-ta="ஆயுர்வேத தீர்வுகள்">Ayurvedic Remedies</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon accent">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>4</h3>
+                    <p data-en="Languages Supported" data-hi="समर्थित भाषाएँ" data-bn="সমর্থিত ভাষা" data-ta="ஆதரிக்கப்படும் மொழிகள்">Languages Supported</p>
+                </div>
+            </div>
+
+            <!-- Feature Grid -->
+            <div class="feature-grid">
+                <div class="feature-card" onclick="showFeature('symptoms')">
+                    <div class="feature-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3 data-en="Symptom Checker" data-hi="लक्षण जांचकर्ता" data-bn="লক্ষণ পরীক্ষক" data-ta="அறிகுறி சரிபார்ப்பாளர்">Symptom Checker</h3>
+                    <p data-en="Check your symptoms and get Ayurvedic remedies" data-hi="अपने लक्षणों की जांच करें और आयुर्वेदिक उपचार प्राप्त करें" data-bn="আপনার লক্ষণগুলি পরীক্ষা করুন এবং আয়ুর্বেদিক প্রতিকার পান" data-ta="உங்கள் அறிகுறிகளைச் சரிபார்த்து ஆயுர்வேத தீர்வுகளைப் பெறுங்கள்">Check your symptoms and get Ayurvedic remedies</p>
+                    <button class="btn btn-primary">
+                        <span data-en="Get Started" data-hi="शुरू करें" data-bn="শুরু করুন" data-ta="தொடங்குங்கள்">Get Started</span>
+                    </button>
+                </div>
+                
+                <div class="feature-card" onclick="showFeature('emergency')">
+                    <div class="feature-icon emergency">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 data-en="Emergency Call" data-hi="आपातकालीन कॉल" data-bn="জরুরি কল" data-ta="அவசர அழைப்பு">Emergency Call</h3>
+                    <p data-en="Quick access to nearby hospitals" data-hi="नजदीकी अस्पतालों तक त्वरित पहुंच" data-bn="কাছাকাছি হাসপাতালে দ্রুত অ্যাক্সেস" data-ta="அருகிலுள்ள மருத்துவமனைகளுக்கு விரைவான அணுகல்">Quick access to nearby hospitals</p>
+                    <button class="btn btn-emergency">
+                        <span data-en="Get Started" data-hi="शुरू करें" data-bn="শুরু করুন" data-ta="தொடங்குங்கள்">Get Started</span>
+                    </button>
+                </div>
+                
+                <div class="feature-card" onclick="showFeature('yoga')">
+                    <div class="feature-icon wellness">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 data-en="Yoga for You" data-hi="आपके लिए योग" data-bn="আপনার জন্য যোগ" data-ta="உங்களுக்கான யோகா">Yoga for You</h3>
+                    <p data-en="Age-appropriate yoga exercises" data-hi="आयु-उपयुक्त योग व्यायाम" data-bn="বয়স-উপযুক্ত যোগ ব্যায়াম" data-ta="வயதுக்கு ஏற்ற யோகா பயிற்சிகள்">Age-appropriate yoga exercises</p>
+                    <button class="btn btn-wellness">
+                        <span data-en="Get Started" data-hi="शुरू करें" data-bn="শুরু করুন" data-ta="தொடங்குங்கள்">Get Started</span>
+                    </button>
+                </div>
+                
+                <div class="feature-card" onclick="showFeature('medicine')">
+                    <div class="feature-icon secondary">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3 data-en="Medicine Reminder" data-hi="दवा याददाश्त" data-bn="ওষুধের অনুস্মারক" data-ta="மருந்து நினைவூட்டல்">Medicine Reminder</h3>
+                    <p data-en="Never miss your medication" data-hi="अपनी दवा कभी न भूलें" data-bn="আপনার ওষুধ কখনো মিস করবেন না" data-ta="உங்கள் மருந்தை ஒருபோதும் தவறவிடாதீர்கள்">Never miss your medication</p>
+                    <button class="btn btn-secondary">
+                        <span data-en="Get Started" data-hi="शुरू करें" data-bn="শুরু করুন" data-ta="தொடங்குங்கள்">Get Started</span>
+                    </button>
+                </div>
+                
+                <div class="feature-card" onclick="showFeature('voice')">
+                    <div class="feature-icon ayurveda">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3 data-en="Voice Assistant" data-hi="वॉयस असिस्टेंट" data-bn="ভয়েস সহায়ক" data-ta="குரல் உதவியாளர்">Voice Assistant</h3>
+                    <p data-en="Speak your symptoms" data-hi="अपने लक्षण बोलें" data-bn="আপনার লক্ষণ বলুন" data-ta="உங்கள் அறிகுறிகளைப் பேசுங்கள்">Speak your symptoms</p>
+                    <button class="btn btn-ayurveda">
+                        <span data-en="Get Started" data-hi="शुरू करें" data-bn="শুরু করুন" data-ta="தொடங்குங்கள்">Get Started</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wellness Tip -->
+            <div class="wellness-tip">
+                <div class="tip-content">
+                    <h3>
+                        <i class="fas fa-clock"></i>
+                        <span data-en="Today's Wellness Tip" data-hi="आज की कल्याण युक्ति" data-bn="আজকের সুস্থতার টিপ" data-ta="இன்றைய நல்வாழ்வு குறிப்பு">Today's Wellness Tip</span>
+                    </h3>
+                    <h4 data-en="Morning Routine" data-hi="सुबह की दिनचर्या" data-bn="সকালের রুটিন" data-ta="காலை வழக்கம்">Morning Routine</h4>
+                    <p data-en="Start your day with warm water mixed with honey and lemon. This ancient Ayurvedic practice helps cleanse your system, boost metabolism, and improve digestion naturally." data-hi="शहद और नींबू मिले गर्म पानी के साथ अपना दिन शुरू करें। यह प्राचीन आयुर्वेदिक प्रथा आपके सिस्टम को साफ करने, चयापचय बढ़ाने और पाचन में सुधार करने में मदद करती है।" data-bn="মধু এবং লেবু মিশ্রিত গরম পানি দিয়ে আপনার দিন শুরু করুন। এই প্রাচীন আয়ুর্বেদিক অনুশীলন আপনার সিস্টেম পরিষ্কার করতে, বিপাক বৃদ্ধি করতে এবং প্রাকৃতিকভাবে হজম উন্নত করতে সাহায্য করে।" data-ta="தேன் மற்றும் எலுமிச்சை கலந்த வெதுவெதுப்பான நீருடன் உங்கள் நாளைத் தொடங்குங்கள். இந்த பண்டைய ஆயுர்வேத நடைமுறை உங்கள் அமைப்பை சுத்தப்படுத்தவும், வளர்சிதை மாற்றத்தை அதிகரிக்கவும், செரிமானத்தை இயற்கையாக மேம்படுத்தவும் உதவுகிறது.">
+                        Start your day with warm water mixed with honey and lemon. This ancient Ayurvedic practice helps cleanse your system, boost metabolism, and improve digestion naturally.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Symptom Checker -->
+        <section id="symptoms" class="section">
+            <div class="section-header">
+                <button class="btn btn-back" onclick="showDashboard()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-en="Back to Dashboard" data-hi="डैशबोर्ड पर वापस" data-bn="ড্যাশবোর্ডে ফিরে যান" data-ta="டாஷ்போர்டுக்குத் திரும்பு">Back to Dashboard</span>
+                </button>
+                <h2>
+                    <i class="fas fa-stethoscope"></i>
+                    <span data-en="Symptom Checker" data-hi="लक्षण जांचकर्ता" data-bn="লক্ষণ পরীক্ষক" data-ta="அறிகுறி சரிபார்ப்பாளர்">Symptom Checker</span>
+                </h2>
+            </div>
+            
+            <div class="card">
+                <div class="symptoms-container">
+                    <h3 data-en="Select Your Symptoms" data-hi="अपने लक्षण चुनें" data-bn="আপনার লক্ষণ নির্বাচন করুন" data-ta="உங்கள் அறிகுறிகளைத் தேர்ந்தெடுக்கவும்">Select Your Symptoms</h3>
+                    
+                    <div class="symptoms-grid" id="symptoms-grid">
+                        <!-- Symptoms will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="custom-symptom">
+                        <input type="text" id="custom-symptom" placeholder="Type other symptoms..." data-en-placeholder="Type other symptoms..." data-hi-placeholder="अन्य लक्षण टाइप करें..." data-bn-placeholder="অন্যান্য লক্ষণ টাইপ করুন..." data-ta-placeholder="மற்ற அறிகுறிகளை தட்டச்சு செய்யுங்கள்...">
+                        <button class="btn btn-primary" onclick="addCustomSymptom()">
+                            <span data-en="Add" data-hi="जोड़ें" data-bn="যোগ করুন" data-ta="சேர்க்கவும்">Add</span>
+                        </button>
+                    </div>
+                    
+                    <div class="selected-symptoms" id="selected-symptoms"></div>
+                    
+                    <button class="btn btn-primary btn-full" onclick="analyzeSymptoms()" id="analyze-btn" disabled>
+                        <i class="fas fa-search"></i>
+                        <span data-en="Get Health Analysis" data-hi="स्वास्थ्य विश्लेषण प्राप्त करें" data-bn="স্বাস্থ্য বিশ্লেষণ পান" data-ta="சுகாதார பகுப்பாய்வைப் பெறுங்கள்">Get Health Analysis</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="analysis-results" class="analysis-results"></div>
+        </section>
+
+        <!-- Emergency Call -->
+        <section id="emergency" class="section">
+            <div class="section-header">
+                <button class="btn btn-back" onclick="showDashboard()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-en="Back to Dashboard" data-hi="डैशबोर्ड पर वापस" data-bn="ড্যাশবোর্ডে ফিরে যান" data-ta="டாஷ்போர்டுக்குத் திரும்பு">Back to Dashboard</span>
+                </button>
+                <h2>
+                    <i class="fas fa-phone"></i>
+                    <span data-en="Emergency Services" data-hi="आपातकालीन सेवाएं" data-bn="জরুরি সেবা" data-ta="அவசர சேவைகள்">Emergency Services</span>
+                </h2>
+            </div>
+            
+            <div class="emergency-alert">
+                <div class="emergency-content">
+                    <div class="emergency-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3 data-en="Emergency Services" data-hi="आपातकालीन सेवाएं" data-bn="জরুরি সেবা" data-ta="அவசர சேவைகள்">Emergency Services</h3>
+                        <p data-en="Quick access to medical help" data-hi="चिकित्सा सहायता तक त्वरित पहुंच" data-bn="চিকিৎসা সাহায্যে দ্রুত অ্যাক্সেস" data-ta="மருத்துவ உதவிக்கான விரைவான அணுகல்">Quick access to medical help</p>
+                    </div>
+                </div>
+                
+                <button class="btn btn-emergency btn-full pulse" onclick="callEmergency()">
+                    <i class="fas fa-phone"></i>
+                    <span data-en="Call Emergency (108/112)" data-hi="आपातकालीन कॉल करें (108/112)" data-bn="জরুরি কল করুন (108/112)" data-ta="அவசர அழைப்பு (108/112)">Call Emergency (108/112)</span>
+                </button>
+            </div>
+            
+            <div class="card">
+                <h3 data-en="Nearby Hospitals" data-hi="नजदीकी अस्पताल" data-bn="কাছাকাছি হাসপাতাল" data-ta="அருகிலுள்ள மருத்துவமனைகள்">Nearby Hospitals</h3>
+                <div class="location-input">
+                    <input type="text" id="location-input" placeholder="Enter your location" data-en-placeholder="Enter your location" data-hi-placeholder="अपना स्थान दर्ज करें" data-bn-placeholder="আপনার অবস্থান লিখুন" data-ta-placeholder="உங்கள் இருப்பிடத்தை உள்ளிடவும்">
+                    <button class="btn btn-primary" onclick="findHospitals()">
+                        <i class="fas fa-search"></i>
+                        <span data-en="Find Hospitals" data-hi="अस्पताल खोजें" data-bn="হাসপাতাল খুঁজুন" data-ta="மருத்துவமனைகளைக் கண்டறியுங்கள்">Find Hospitals</span>
+                    </button>
+                </div>
+                
+                <div id="hospitals-list" class="hospitals-list"></div>
+            </div>
+        </section>
+
+        <!-- Voice Assistant -->
+        <section id="voice" class="section">
+            <div class="section-header">
+                <button class="btn btn-back" onclick="showDashboard()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-en="Back to Dashboard" data-hi="डैशबोर्ड पर वापस" data-bn="ড্যাশবোর্ডে ফিরে যান" data-ta="டாஷ்போர்டுக்குத் திரும்பு">Back to Dashboard</span>
+                </button>
+                <h2>
+                    <i class="fas fa-microphone"></i>
+                    <span data-en="Voice Health Assistant" data-hi="वॉयस हेल्थ असिस्टेंट" data-bn="ভয়েস হেলথ অ্যাসিস্ট্যান্ট" data-ta="குரல் ஆரோக்கிய உதவியாளர்">Voice Health Assistant</span>
+                </h2>
+            </div>
+            
+            <div class="card">
+                <div class="voice-container">
+                    <p class="voice-description" data-en="Speak your symptoms in Hindi or English" data-hi="हिंदी या अंग्रेजी में अपने लक्षण बोलें" data-bn="হিন্দি বা ইংরেজিতে আপনার লক্ষণ বলুন" data-ta="ஹிந்தி அல்லது ஆங்கிலத்தில் உங்கள் அறிகுறிகளைப் பேசுங்கள்">
+                        Speak your symptoms in Hindi or English
+                    </p>
+                    
+                    <div class="voice-controls">
+                        <button class="btn-voice" id="voice-btn" onclick="toggleVoiceRecognition()">
+                            <i class="fas fa-microphone" id="voice-icon"></i>
+                        </button>
+                        <p class="voice-status" id="voice-status" data-en="Click to start speaking" data-hi="बोलना शुरू करने के लिए क्लिक करें" data-bn="কথা বলতে শুরু করতে ক্লিক করুন" data-ta="பேசத் தொடங்க கிளிக் செய்யுங்கள்">
+                            Click to start speaking
+                        </p>
+                    </div>
+                    
+                    <div class="voice-transcript" id="voice-transcript"></div>
+                    
+                    <button class="btn btn-primary btn-full" onclick="analyzeVoiceInput()" id="voice-analyze-btn" disabled>
+                        <i class="fas fa-brain"></i>
+                        <span data-en="Analyze Symptoms" data-hi="लक्षणों का विश्लेषण करें" data-bn="লক্ষণ বিশ্লেষণ করুন" data-ta="அறிகுறிகளை பகுப்பாய்வு செய்யுங்கள்">Analyze Symptoms</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="voice-analysis-results" class="analysis-results"></div>
+        </section>
+
+        <!-- Yoga Recommendations -->
+        <section id="yoga" class="section">
+            <div class="section-header">
+                <button class="btn btn-back" onclick="showDashboard()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-en="Back to Dashboard" data-hi="डैशबोर्ड पर वापस" data-bn="ড্যাশবোর্ডে ফিরে যান" data-ta="டாஷ்போர்டுக்குத் திரும்பு">Back to Dashboard</span>
+                </button>
+                <h2>
+                    <i class="fas fa-heart"></i>
+                    <span data-en="Yoga for Seniors" data-hi="वरिष्ठों के लिए योग" data-bn="সিনিয়রদের জন্য যোগ" data-ta="மூத்தவர்களுக்கான யோகா">Yoga for Seniors</span>
+                </h2>
+            </div>
+            
+            <div class="card">
+                <div class="yoga-form">
+                    <div class="form-group">
+                        <label data-en="Your Age" data-hi="आपकी उम्र" data-bn="আপনার বয়স" data-ta="உங்கள் வயது">Your Age</label>
+                        <input type="number" id="user-age" min="40" max="100" placeholder="Enter your age">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label data-en="Health Conditions" data-hi="स्वास्थ्य स्थितियां" data-bn="স্বাস্থ্য অবস্থা" data-ta="சுகாதார நிலைமைகள்">Health Conditions</label>
+                        <div class="conditions-grid" id="conditions-grid">
+                            <!-- Conditions will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-full" onclick="getYogaRecommendations()">
+                        <i class="fas fa-heart"></i>
+                        <span data-en="Get My Yoga Plan" data-hi="मेरी योग योजना प्राप्त करें" data-bn="আমার যোগ পরিকল্পনা পান" data-ta="எனது யோகா திட்டத்தைப் பெறுங்கள்">Get My Yoga Plan</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="yoga-recommendations" class="yoga-recommendations"></div>
+        </section>
+
+        <!-- Medicine Reminder -->
+        <section id="medicine" class="section">
+            <div class="section-header">
+                <button class="btn btn-back" onclick="showDashboard()">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-en="Back to Dashboard" data-hi="डैशबोर्ड पर वापस" data-bn="ড্যাশবোর্ডে ফিরে যান" data-ta="டாஷ்போர்டுக்குத் திரும்பு">Back to Dashboard</span>
+                </button>
+                <h2>
+                    <i class="fas fa-pills"></i>
+                    <span data-en="Medicine Reminder" data-hi="दवा याददाश्त" data-bn="ওষুধের অনুস্মারক" data-ta="மருந்து நினைவூட்டல்">Medicine Reminder</span>
+                </h2>
+                <button class="btn btn-primary" onclick="showAddMedicineForm()">
+                    <i class="fas fa-plus"></i>
+                    <span data-en="Add Medicine" data-hi="दवा जोड़ें" data-bn="ওষুধ যোগ করুন" data-ta="மருந்தைச் சேர்க்கவும்">Add Medicine</span>
+                </button>
+            </div>
+            
+            <!-- Current Time -->
+            <div class="time-display">
+                <div class="current-time" id="current-time"></div>
+                <div class="current-date" id="current-date"></div>
+            </div>
+            
+            <!-- Add Medicine Form -->
+            <div id="add-medicine-form" class="card hidden">
+                <h3 data-en="Add New Medicine" data-hi="नई दवा जोड़ें" data-bn="নতুন ওষুধ যোগ করুন" data-ta="புதிய மருந்தைச் சேர்க்கவும்">Add New Medicine</h3>
+                <div class="medicine-form">
+                    <div class="form-group">
+                        <label data-en="Medicine Name" data-hi="दवा का नाम" data-bn="ওষুধের নাম" data-ta="மருந்தின் பெயர்">Medicine Name</label>
+                        <input type="text" id="medicine-name" placeholder="e.g., Metformin, Vitamin D">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label data-en="Dosage" data-hi="खुराक" data-bn="ডোজ" data-ta="அளவு">Dosage</label>
+                        <input type="text" id="medicine-dosage" placeholder="e.g., 500mg, 2 tablets">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label data-en="Time" data-hi="समय" data-bn="সময়" data-ta="நேரம்">Time</label>
+                        <input type="time" id="medicine-time">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label data-en="Instructions" data-hi="निर्देश" data-bn="নির্দেশাবলী" data-ta="வழிமுறைகள்">Instructions</label>
+                        <input type="text" id="medicine-instructions" placeholder="e.g., Take with food">
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button class="btn btn-primary" onclick="addMedicine()">
+                            <span data-en="Add Medicine" data-hi="दवा जोड़ें" data-bn="ওষুধ যোগ করুন" data-ta="மருந்தைச் சேர்க்கவும்">Add Medicine</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="hideAddMedicineForm()">
+                            <span data-en="Cancel" data-hi="रद्द करें" data-bn="বাতিল" data-ta="ரத்து செய்">Cancel</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Medicine List -->
+            <div id="medicine-list" class="medicine-list"></div>
+        </section>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading" class="loading hidden">
+        <div class="loading-spinner"></div>
+        <p data-en="Analyzing..." data-hi="विश्लेषण कर रहे हैं..." data-bn="বিশ্লেষণ করছি..." data-ta="பகுப்பாய்வு செய்கிறது...">Analyzing...</p>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
