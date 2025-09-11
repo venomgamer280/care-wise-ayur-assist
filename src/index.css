@@ -2,95 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Health Companion App Design System - Elderly-Friendly Design
+All colors MUST be HSL for optimal theming.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    /* Base colors - High contrast for accessibility */
+    --background: 120 20% 98%;
     --foreground: 222.2 84% 4.9%;
+    
+    /* Health-focused color palette */
+    --primary: 142 76% 36%;        /* Healing green */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 142 69% 58%;   /* Lighter green for effects */
+    
+    --secondary: 25 95% 53%;       /* Warm orange for care */
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 217 91% 60%;         /* Trust blue */
+    --accent-foreground: 0 0% 100%;
+    
+    /* Emergency colors */
+    --emergency: 0 84% 60%;        /* Emergency red */
+    --emergency-foreground: 0 0% 100%;
+    
+    /* Wellness colors */
+    --wellness: 142 69% 58%;       /* Light green */
+    --wellness-foreground: 142 76% 20%;
+    
+    /* Ayurveda theme */
+    --ayurveda: 45 93% 58%;        /* Golden yellow */
+    --ayurveda-foreground: 45 50% 20%;
 
+    /* Card and UI elements */
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
+    
+    /* Muted colors for subtle elements */
+    --muted: 142 30% 94%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Destructive for alerts */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders and inputs */
+    --border: 142 30% 88%;
+    --input: 142 30% 88%;
+    --ring: 142 76% 36%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-wellness: linear-gradient(135deg, hsl(var(--wellness)), hsl(var(--accent)));
+    --gradient-ayurveda: linear-gradient(135deg, hsl(var(--ayurveda)), hsl(var(--secondary)));
+    
+    /* Shadows */
+    --shadow-healing: 0 4px 20px hsl(var(--primary) / 0.15);
+    --shadow-wellness: 0 4px 20px hsl(var(--wellness) / 0.15);
+    --shadow-emergency: 0 4px 20px hsl(var(--emergency) / 0.25);
+    
+    /* Border radius */
+    --radius: 0.75rem;
+    
+    /* Typography - Large sizes for elderly users */
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
+    --background: 142 15% 8%;
+    --foreground: 0 0% 95%;
+    
+    --primary: 142 69% 58%;
+    --primary-foreground: 142 76% 15%;
+    
+    --card: 142 15% 12%;
+    --card-foreground: 0 0% 95%;
+    
+    --muted: 142 15% 15%;
     --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --border: 142 15% 20%;
+    --input: 142 15% 20%;
   }
 }
 
@@ -100,6 +100,77 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-medium;
+    font-size: var(--text-lg);
+  }
+  
+  /* Accessibility improvements for elderly users */
+  button, a {
+    @apply min-h-[48px] min-w-[48px];
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
+
+@layer components {
+  /* Healing gradient background */
+  .bg-healing-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-wellness-gradient {
+    background: var(--gradient-wellness);
+  }
+  
+  .bg-ayurveda-gradient {
+    background: var(--gradient-ayurveda);
+  }
+  
+  /* Glass effect */
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: hsl(var(--background) / 0.8);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  
+  /* Pulse animation for emergency */
+  .pulse-emergency {
+    animation: pulse-emergency 2s infinite;
+  }
+  
+  @keyframes pulse-emergency {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 hsl(var(--emergency) / 0.7);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px hsl(var(--emergency) / 0);
+    }
+  }
+  
+  /* Gentle float animation */
+  .float-gentle {
+    animation: float-gentle 3s ease-in-out infinite;
+  }
+  
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
   }
 }
